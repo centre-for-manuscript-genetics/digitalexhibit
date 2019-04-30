@@ -1,6 +1,19 @@
-# Brulez Archive
+# Digital Exhibit CMS
 
-## Production Requirements
+## About
+This application provides a Content Management System for developing digital exhibitions in a [Prezi](https://prezi.com)-like environment. The application was designed for highlighting so-called *Genetic Paths* (these are: chronological narratives) in literary writing processes in view of making the research of Genetic Criticism more accessible to a wider audience. You can find an example of an exhibit (in Dutch) developed using this CMS here: [http://brulez.uantwerpen.be](http://brulez.uantwerpen.be)
+
+### Credits
+The CMS was designed by the Antwerp (Belgium) based digital agency [Prophets](http://www.prophets.be/), and the development of its open source software package was part of the [University of Antwerp](https://www.uantwerpen.be/en/)'s contribution to the [DiXiT](http://dixit.uni-koeln.de) project – a [Marie Curie ITN](http://ec.europa.eu/research/mariecurieactions/about-msca/actions/itn/index_en.htm) that has received funding from the People Programme ([Marie Skłodowska-Curie Actions](http://ec.europa.eu/research/mariecurieactions/)) of the European Union's Seventh Framework Programme (FP7/2007-2013) under REA grant agreement n° 317436. Specifically, the development of the software was commissioned by DiXiT fellows Aodhán Kelly and Elli Bleeker, and their PhD supervisor Dirk Van Hulle – who were all working at the University of Antwerp's [Centre for Manuscript Genetics](https://www.uantwerpen.be/en/research-groups/centre-for-manuscript-genetics/) at the time.
+
+After the conclusion of the DiXiT project, the CMS was provided with a series of installation instrucions (written by Jasper Vercammen – see below), and its reusability tested by developing a new exhibit on the Belgian author Hugo Claus, that was part of a local exhibit at the Flemish literary archive [Letterenhuis](https://www.letterenhuis.be/nl). The software was then made available online for further reuse on the [Center of Manuscript Genetics' GitHub page](https://github.com/centre-for-manuscript-genetics). Funding for these additional tasks was provided by [DARIAH-VL](http://be.dariah.eu/dariah-vl), the [FWO](https://www.fwo.be)-funded Flemish (Belgian) contribution to [DARIAH-EU](https://www.dariah.eu). 
+
+### License and Reuse
+The Digital Exhibit CMS is open-sourced software licensed under the [GNU License](https://www.gnu.org/licenses/gpl-3.0.en.html). 
+
+## Installation Instructions
+
+### Production Requirements
 Your server must have following modules / packages installed. 
 - PHP >= 5.6.4
 - OpenSSL PHP Extension
@@ -9,12 +22,12 @@ Your server must have following modules / packages installed.
 - Tokenizer PHP Extension
 - sqlite
 
-## Local development requirements
+### Local development requirements
 Make sure you have PHP installed and that it is accessible through the command line.
 On Linux and OSX this comes out of the box, on Windows you're gonna have to change some settings. 
 More information can be found in the [PHP docs](http://php.net/manual/fa/install.windows.commandline.php)
 
-## Local development
+### Local development
 This project is made with the [laravel framework](https://laravel.com/). It requires some packages which are defined in the `composer.json` file.
 To install these enter the following command:
 ```
@@ -42,7 +55,7 @@ php artisan key:generate
 
 
 
-### Javascript & Styling
+#### Javascript & Styling
 If you look at the folder structure, the files needed for deployment to the server are located in `/public/`. In there you will also find a `/css` and a `/js` folder. These folders contain the merged JS and (S)CSS files. 
 
 To make changes to one of those, do NOT change the files in the public folder. 
@@ -71,7 +84,7 @@ npm run prod
 It will run the compiler over all the files and it will create minified and uglified versions and place them in the public folder. This should be done before a production release.
 
 
-### Local setup of the application
+#### Local setup of the application
 After developing the site (or during the development) you will need to test the application. Since you cannot access the cockpit CMS via the `serve` command, we need to setup a local apache server. Easiest way to do that is installing [mamp (OSX)](https://www.mamp.info/en/) / [wamp (Windows)](http://www.wampserver.com/en/) / [lamp (Linux)](https://www.linux.com/learn/easy-lamp-server-installation). 
 Once you have mamp/wamp/lamp running we are going to do a bit of setup to make it easier for accessing the website.
 Inside the mamp/lamp/wamp folder you will find the apache folder (on OSX it can be found here: `/Applications/MAMP/conf/apache`). Search in that folder for the file `httpd.conf` and open it. 
@@ -124,7 +137,7 @@ If you receive an error message like this: `Parse error: syntax error, unexpecte
 update your mamp/lamp/wamp so it uses php version 5.5 or newer. 
 
 
-## Deployment to a server
+### Deployment to a server
 If you want to deploy the website to a real server, you need to make a production build as described in the [Javascript & Styling](#Javascript-Styling) section. Once that is done, you can move the public folder to the server. 
 
 To upload files and other media via the cockpit CMS, you've got to make sure that the `cockpit/storage` folder had write access on the server.
