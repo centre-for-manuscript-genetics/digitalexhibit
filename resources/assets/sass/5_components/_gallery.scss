@@ -1,0 +1,49 @@
+.c-gallery {
+    $c: #{&};
+    @include clearfix();
+
+    &__item {
+        text-decoration: none;
+        position: relative;
+        display: inline-block;
+
+        & + & {
+            padding: 0 10px;
+        }
+    }
+
+    &__magnify {
+        color: white;
+        @include theme__background-color();
+        padding: 10px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: -20px;
+
+        .o-icon {
+            display: block;
+        }
+    }
+
+    &--right {
+
+        #{$c}__item {
+            float: right;
+        }
+
+        #{$c}__magnify {
+            left: -20px;
+        }
+    }
+
+    &--left {
+
+        #{$c}__item {
+            float: left;
+        }
+
+        #{$c}__magnify {
+            right: -20px;
+        }
+    }
+}

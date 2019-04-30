@@ -1,0 +1,42 @@
+&__body-container {
+    //flex: 1;
+    align-self: center;
+}
+
+&__body {
+    width: $c__body-width;
+    margin: auto;
+    position: relative;
+
+    &--right {
+        margin-left: $c__image-diameter + 50px;
+    }
+
+    &--left {
+        margin-right: $c__image-diameter + 50px;
+    }
+}
+
+&__heading {
+    margin-top: 0;
+    margin-bottom: $c__heading-margin-bottom;
+
+    h2, h3 {
+        margin: 0;
+    }
+}
+
+&__body-content {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+
+    &--video {
+        height: 345px;
+    }
+}
+
+&__action {
+    margin-top: 30px;
+}
+

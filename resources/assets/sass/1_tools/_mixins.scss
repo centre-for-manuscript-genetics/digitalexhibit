@@ -1,0 +1,85 @@
+/// font size
+@mixin font-size($sizeValue: 1.6, $line: $sizeValue * 1.5) {
+  font-size: ($sizeValue * 1) + px;
+  font-size: ($sizeValue / 10) + rem;
+  line-height: ($line * 1) + px;
+  line-height: ($line / 10) + rem;
+}
+
+@mixin cover(){
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/// Themify mixin
+
+/// @access private
+/// @author Hugo Giraudel
+/// @param {String} $property - Property to themify
+/// @param {String} $key - Key color to use from theme
+/// @param {Map} $themes [$themes] - Map of themes to use
+@mixin themify($property, $key:'theme--primary', $themes: $palette--themes) {
+  // Iterate over the themes
+  @each $theme, $colors in $themes {
+    // Create a selector (e.g. `.media.theme-unicorn, .theme-unicorn .media`)
+    .t-#{$theme} & {
+      // Output the declaration
+      #{$property}: map-get($colors, $key);
+    }
+  }
+}
+
+/// Shorthand to themify color through `themify` mixin
+/// @access public
+/// @see {mixin} themify
+@mixin themify-button($inverted: false, $themes: $palette--themes) {
+
+  @each $theme, $colors in $themes {
+    // Create a selector (e.g. `.media.theme-unicorn, .theme-unicorn .media`)
+    .t-#{$theme} & {
+        // Output the declaration
+        @if $inverted {
+            @include button-variant(map-get($colors, 'theme--primary'), $btn-primary-color, transparent);
+
+            //💀 HACK: override bootstrap mixin
+            &:focus,
+            &.focus {
+              background-color: white;
+            }
+            &:hover {
+              background-color: white;
+            }
+            &:active,
+            &.active,
+            .open > &.dropdown-toggle {
+              background-color: white;
+
+              &:hover,
+              &:focus,
+              &.focus {
+                background-color: white;
+              }
+            }
+        } @else {
+            @include button-variant($btn-primary-color, map-get($colors, 'theme--primary'), transparent);
+        }
+    }
+  }
+}
+
+/// Shorthand to themify color through `themify` mixin
+/// @access public
+/// @see {mixin} themify
+@mixin theme__color($colorKey:'theme--primary') {
+  @include themify('color', $colorKey);
+}
+
+/// Shorthand to themify background-color through `themify` mixin
+/// @access public
+/// @see {mixin} themify
+@mixin theme__background-color($colorKey:'theme--primary') {
+  @include themify('background-color', $colorKey);
+}

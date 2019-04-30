@@ -1,0 +1,110 @@
+.l-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+
+    &.is-loading {
+        opacity: 0;
+    }
+}
+
+.c-footer {
+    background: $color--gray-tundora;
+    color: $color--gray-nurse;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media screen and(min-width: $breakpoint--xl){
+        flex-wrap: nowrap;
+    }
+
+    &__sponsors {
+        padding: 15px 20px 15px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        order: 2;
+
+        a {
+            padding: 5px;
+        }
+    }
+
+    &__legal {
+        @include font-size(14);
+        display: flex;
+        align-items: center;
+        padding: 15px 20px;
+        order: 1;
+    }
+
+    &__link {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__navigation-title {
+        color: white;
+        font-weight: normal;
+        padding: 10px 12px;
+        margin: 0;
+        max-width: 180px;
+    }
+
+    &__back-to-home {
+        @include font-size(14);
+        padding: 15px 24px;
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        background: $color--primary;
+
+        &-link {
+            width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+    }
+
+    &__navigation {
+        @include font-size(14, 14);
+        @include theme__background-color();
+        width: 100%;
+        display: inline-block;
+        color: white;
+        display: flex;
+        //flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        order: 0;
+
+        @media screen and(min-width: $breakpoint--xl){
+            width: auto;
+            max-width: 46%;
+            order: 4;
+        }
+
+        @media screen and(min-width: $breakpoint--xxl){
+            max-width: 33%;
+        }
+
+        nav {
+            padding: 15px 24px;
+        }
+
+        a {
+            color: white;
+            @include font-size(14);
+            text-decoration: none;
+        }
+    }
+}

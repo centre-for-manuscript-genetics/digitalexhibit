@@ -1,0 +1,35 @@
+@if($debug == 'true'){
+    .db-transparant {
+        opacity: 0.2;
+    }
+
+    .db-slide {
+        position: relative;
+
+        &:after {
+            content:'';
+            @include cover();
+            background: green;
+            opacity: 0.8;
+        }
+
+        &__index {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: white;
+            z-index: 1;
+            margin-top: -20px;
+            margin-left: -50px;
+            @include font-size(100,0);
+            font-family: $font--secondary;
+        }
+    }
+} @else {
+    .db-slide {
+
+        &__index {
+            display: none;
+        }
+    }
+}

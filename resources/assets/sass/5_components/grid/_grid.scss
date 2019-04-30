@@ -1,0 +1,11 @@
+.c-grid {
+
+    @import "grid__nav";
+
+    &.is-loading {
+        opacity: 0;
+    }
+
+    &__slides {
+    }
+}

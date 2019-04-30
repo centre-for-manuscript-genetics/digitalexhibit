@@ -1,0 +1,49 @@
+.c-slide {
+    $c: #{&};
+    $c__slide-width:            1000px;
+    $c__body-width:             550px;
+    $c__heading-margin-bottom:  5px;
+    $c__image-diameter:         400px;
+    $c__gallery-item-diameter:  130px;
+
+    width: $c__slide-width;
+
+    &__container {
+        display: flex;
+
+        &--column {
+            flex-direction: column;
+
+            #{$c}__body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+
+    @import "slide__visual";
+    @import "slide__body";
+    @import "slide__gallery";
+    @import "slide__audio";
+}
+
+//library chosen classname
+.step {
+
+    @if($debug=='false'){
+        &:after {
+            content:'';
+            @include cover();
+            margin: -50px;
+        }
+
+        &.active {
+            z-index: 1;
+
+            &:after {
+                content: none;
+            }
+        }
+    }
+}

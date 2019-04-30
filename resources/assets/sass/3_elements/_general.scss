@@ -1,0 +1,23 @@
+html {
+    box-sizing: border-box;
+    touch-action: manipulation;
+
+    * {
+        box-sizing: inherit;
+    }
+}
+
+body {
+    background: url('../images/background--lg.jpg') no-repeat;
+    background-size: cover;
+
+    @media screen and(min-width: $breakpoint--xl) {
+        background: url('../images/background--xl.jpg') no-repeat;
+        background-size: cover;
+    }
+
+    @media screen and(min-width: $breakpoint--xxl) {
+        background: url('../images/background--xxl.jpg') no-repeat;
+        background-size: cover;
+    }
+}

@@ -1,0 +1,39 @@
+&__visual {
+    $c__image-rotation: 5deg;
+    align-self: center;
+    display: block;
+
+    img {
+        max-width: $c__image-diameter;
+        max-height: $c__image-diameter;
+    }
+
+    &--shadow {
+        box-shadow: 0 0 20px rgba(black, 0.2);
+    }
+
+    &--top {
+        order: 0;
+
+        // add fixed with for support in IE11
+        img {
+            width: $c__image-diameter;
+        }
+    }
+
+    &--right, &--left {
+        position: absolute;
+        top: 50%;
+        margin-top: $c__image-diameter/ -2;
+    }
+
+    &--right {
+        left: $c__body-width + 50;
+        transform: rotate($c__image-rotation);
+    }
+
+    &--left {
+        left: 0;
+        transform: rotate(-$c__image-rotation);
+    }
+}

@@ -1,0 +1,12 @@
+&__gallery {
+    padding-top: 20px;
+
+    &--left {
+        padding-left: $c__image-diameter/1.4;
+    }
+
+    &--right {
+        text-align: right;
+        padding-right: $c__image-diameter/1.4;
+    }
+}

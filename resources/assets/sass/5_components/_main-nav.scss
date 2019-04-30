@@ -1,0 +1,64 @@
+.c-main-nav {
+    $b: &;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+
+    &.is-loading {
+        display: none;
+    }
+
+    &__menu {
+        list-style-type: none;
+        padding: 0;
+        display: inherit;
+    }
+
+    &__item {
+        @include font-size(15, 15);
+        margin: 10px 0;
+
+        &.is-active {
+            @include font-size(20, 20);
+
+            #{$b}__link {
+                padding: 10px 15px 10px 20px;
+            }
+        }
+
+        &--primary {
+            #{$b}__link {
+                background-color: $color--primary;
+            }
+        }
+
+        &--secondary {
+            #{$b}__link {
+                background-color: $color--secondary;
+            }
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+        padding: 8px 12px 8px 20px;
+        border-radius: 0 8px 8px 0;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        transform: translateX(-5px);
+        transition: transform 0.15s ease-out;
+        cursor: default;
+
+        @at-root a#{&} {
+            cursor: pointer;
+
+            &:hover, &:focus {
+                text-decoration: none;
+                color: inherit;
+                transform: translateX(0);
+            }
+        }
+    }
+}

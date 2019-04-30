@@ -1,0 +1,76 @@
+.o-button {
+    $o: #{&};
+
+    @include button-size(12px, 60px, 14px, 14px, $btn-border-radius-base);
+    @include user-select(none);
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: $btn-font-weight;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    transition: color .1s ease-in-out;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(black, 0.2);
+    text-decoration: none;
+
+    &, &:active {
+        &:focus {
+          @include tab-focus;
+        }
+    }
+
+    &:hover{
+        color: $btn-default-color;
+        text-decoration: none;
+    }
+
+    &:active, &.active {
+        outline: 0;
+        background-image: none;
+    }
+
+    &--disabled, &[disabled], fieldset[disabled] & {
+        cursor: $cursor-disabled;
+        opacity: 0.65;
+    }
+
+    &--theme-primary {
+
+        @include themify-button();
+
+        &-inverted {
+            @include themify-button($inverted: true);
+        }
+
+
+    }
+
+    &--block {
+        display: block;
+        margin: auto;
+    }
+
+    &--inline-block {
+        display: inline-block;
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    &--round {
+        @include button-size(5px, 5px, 1.2em, 1.2em, 50%);
+
+        .o-icon {
+            display: block;
+        }
+    }
+
+    &--round-large {
+        @include button-size(1.2em, 1.2em, 1.2em, 1.2em, 50%);
+    }
+}

@@ -1,0 +1,27 @@
+$color--gray-dove: #6b6b6b;
+$color--gray-tundora: #434343;
+$color--gray-nurse: #e8e9e7;
+$color--black-mineshaft: #212121;
+$color--green-chateau: #3caf6b;
+$color--blue-shakespeare: #59add2;
+
+//abstracts
+$color--title: $color--black-mineshaft;
+$color--copy: $color--gray-dove;
+$color--primary: $color--green-chateau;
+$color--secondary: $color--blue-shakespeare;
+
+//themes
+$palette--themes: (
+    'theme--1': (
+        'theme--primary': $color--primary,
+        'theme--primary-dark': darken($color--primary, 5%),
+        'theme--white': white
+    ),
+
+    'theme--2': (
+        'theme--primary': $color--secondary,
+        'theme--primary-dark': darken($color--secondary, 5%),
+        'theme--white': white
+    )
+)

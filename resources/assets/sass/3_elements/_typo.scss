@@ -1,0 +1,30 @@
+html {
+    font-size: 62.5%; /* Sets up the Base 10 stuff */
+}
+
+body {
+    @include font-size(18, 24);
+    font-family: $font--primary;
+    font-weight: 100;
+    color: $color--copy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $color--title;
+}
+
+h2 {
+    @include font-size(48, 52);
+    font-family: $font--secondary;
+    font-weight: 400;
+}
+
+h3 {
+    font-weight: 100;
+}
+
+//experimental
+p, h1, h2, h3, h4, h5, h6 {
+  &:first-child { margin-top: 0; }
+  &:last-child { margin-bottom: 0; }
+}

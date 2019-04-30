@@ -1,0 +1,37 @@
+.u-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+.u-text--center {
+    text-align: center;
+}
+
+.u-separated {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.u-hidden-to {
+
+    &--md {
+        @media screen and(max-width: $breakpoint--md - 1){
+            display: none;
+        }
+    }
+}
+
+.u-hidden-from {
+
+    &--md {
+        @media screen and(min-width: $breakpoint--md){
+            display: none;
+        }
+    }
+}
